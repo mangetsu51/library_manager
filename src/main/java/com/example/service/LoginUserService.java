@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.entity.User;
 import com.example.repository.UserRepository;
 
+@Service
 public class LoginUserService implements UserDetailsService{
 	
 	private final UserRepository userRepository;
