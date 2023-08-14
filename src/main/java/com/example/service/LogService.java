@@ -3,6 +3,7 @@ package com.example.service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,13 @@ public class LogService {
 		log.setReturn_date(null);
 		System.out.print(log.getUser_id());
 		
+		return this.logRepository.save(log);
+	}
+	
+	public Log returnBook(Integer library_id, Integer user_id, LocalDate localDate) {
+		Optional<Log> optionalLog = this.logRepository.findTop1ByLibraryIdAndUserIdOrderByRentDateDesc(library_id,user_id);
+		Log log = optionalLog.get();
+		log.setReturn_date(localDate);
 		return this.logRepository.save(log);
 	}
 }

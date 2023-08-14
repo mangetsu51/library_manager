@@ -41,5 +41,11 @@ public class LibraryService {
 		return this.libraryRepository.save(library);
 	}
 	
+	public Library returnIdUpdata(Integer id) {
+		Library library = this.findById(id);
+		library.setUser_id(0);
+		return this.libraryRepository.save(library);
+	}
+	
 	
 }

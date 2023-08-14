@@ -58,4 +58,14 @@ public class LibraryController {
 		
 	}
 	
+	@PostMapping("return")
+	public String returnBook(@RequestParam("id") Integer id, @AuthenticationPrincipal LoginUser loginUser) {
+		this.libraryService.returnIdUpdata(id);
+		
+		LocalDate localDate = LocalDate.now();
+		
+		Log log = this.logService.returnBook(id, loginUser.getUser().getId(), localDate);
+		return "redirect:/library";
+	}
+	
 }

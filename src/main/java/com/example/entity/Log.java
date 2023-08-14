@@ -33,7 +33,7 @@ public class Log {
 	private LocalDate rent_date;
 	
 	@Column(name = "RETURN_DATE")
-	private Date return_date;
+	private LocalDate return_date;
 	
 	@Column(name = "RETURN_DUE_DATE")
 	private LocalDateTime return_due_date;
@@ -70,11 +70,11 @@ public class Log {
 		this.rent_date = rent_date;
 	}
 	
-	public Date getReturn_date() {
+	public LocalDate getReturn_date() {
 		return this.return_date;
 	}
 	
-	public void setReturn_date(Date return_date) {
+	public void setReturn_date(LocalDate return_date) {
 		this.return_date = return_date;
 	}
 	

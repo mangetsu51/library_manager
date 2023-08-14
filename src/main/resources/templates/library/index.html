@@ -27,12 +27,32 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Title</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr th:each="library : ${libraries}">
                                         <td th:text="${library.id}"></td>
                                         <td th:text="${library.name}"></td>
+                                        <td>
+											<div th:switch="${library.user_id}" sec:authorize="isAuthenticated()">
+												
+												<form th:action="@{/library/borrow/}" method="get">
+                            						<input type="hidden" name="id" th:value="${library.id}">
+                            						<input type="submit" class="btn btn-info" value="borrow" th:case="0">
+                        						</form>
+    												
+    											<form th:action="@{/library/return/}" method="post">
+													<input type="hidden" name="id" th:value="${library.id}" >
+												    <input type="submit" class="btn btn-danger" value="return" th:case="${#authentication.principal.user.id}">
+    											</form>
+    											
+												<div th:case="*">
+        											<div class="btn btn-success">borrowing</div>
+    											</div>
+												
+											</div>
+                    					</td>
                                     </tr>
                                 </tbody>
                             </table>
