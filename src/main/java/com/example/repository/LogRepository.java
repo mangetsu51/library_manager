@@ -11,5 +11,5 @@ import com.example.entity.Log;
 public interface LogRepository extends JpaRepository<Log, Integer>{
 	
 //	public Log findByLibraryIdAndUserIdOrderByRentDateDesc(Integer libraryId, Integer userId);
-	public Optional<Log> findTop1ByLibraryIdAndUserIdOrderByRentDateDesc(Integer library_id, Integer user_id);
+	public Optional<Log> findTop1ByLibraryIdAndUserIdOrderByRentDateDesc(Integer libraryId, Integer userId);
 }

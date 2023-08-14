@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,15 +26,16 @@ public class Log {
 	private Integer id;
 	
 	@Column(name = "LIBRARY_ID")
-	private Integer library_id;
+	private Integer libraryId;
 	
 	@Column(name = "USER_ID")
-	private Integer user_id;
+	private Integer userId;
 	
 	@Column(name = "RENT_DATE")
-	private LocalDate rent_date;
+	private LocalDate rentDate;
 	
-	@Column(name = "RETURN_DATE")
+	@ManyToOne
+	@JoinColumn(name = "RETURN_DATE", insertable = false, updatable = false)
 	private LocalDate return_date;
 	
 	@Column(name = "RETURN_DUE_DATE")
@@ -47,27 +50,27 @@ public class Log {
 	}
 	
 	public Integer getLibrary_id() {
-		return this.library_id;
+		return this.libraryId;
 	}
 	
 	public void setLibrary_id(Integer library_id) {
-		this.library_id = library_id;
+		this.libraryId = library_id;
 	}
 	
 	public Integer getUser_id() {
-		return this.user_id;
+		return this.userId;
 	}
 	
 	public void setUser_id(Integer user_id) {
-		this.user_id = user_id;
+		this.userId = user_id;
 	}
 	
 	public LocalDate getRent_date() {
-		return this.rent_date;
+		return this.rentDate;
 	}
 	
 	public void setRent_date(LocalDate rent_date) {
-		this.rent_date = rent_date;
+		this.rentDate = rent_date;
 	}
 	
 	public LocalDate getReturn_date() {

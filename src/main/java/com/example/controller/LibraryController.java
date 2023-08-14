@@ -68,4 +68,9 @@ public class LibraryController {
 		return "redirect:/library";
 	}
 	
+	@GetMapping("history")
+	public String history() {
+		return "";
+	}
+	
 }
