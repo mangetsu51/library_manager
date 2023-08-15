@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -69,8 +70,10 @@ public class LibraryController {
 	}
 	
 	@GetMapping("history")
-	public String history() {
-		return "";
+	public String history(Model model, @AuthenticationPrincipal LoginUser loginUser) {
+		List<Log>  histories = this.logService.getByUserId(loginUser.getUser().getId());
+		model.addAttribute("histories", histories);
+		return "library/borrowHistory";
 	}
 	
 }

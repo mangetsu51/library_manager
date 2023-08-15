@@ -43,4 +43,8 @@ public class LogService {
 		log.setReturn_date(localDate);
 		return this.logRepository.save(log);
 	}
+	
+	public List<Log> getByUserId(Integer userId){
+		return this.logRepository.findByUserId(userId);
+	}
 }

@@ -7,22 +7,28 @@
     <div th:fragment="sidebar" class="sidebar" data-background-color="white" data-active-color="danger">
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="library.html" class="simple-text">
-                    XX Library
-                </a>
+                <form th:action="@{/library}" method="get">
+			        <button>
+			            XX Library
+			        </button>
+    			</form>
             </div>
             <ul class="nav">
                 <li class="active">
-                    <a href="index">
-                        <i class="ti-book"></i>
-                        <p>Book List</p>
-                    </a>
+                    <form th:action="@{/library}" method="get">
+				        <button>
+				            <i class="ti-book"></i>
+                        	Book List
+				        </button>
+    				</form>
                 </li>
                 <li class="link" id="link-book-list">
-                    <a href="/linrary/history">
-                        <i class="ti-user"></i>
-                        <p>Borrow History</p>
-                    </a>
+                    <form th:action="@{/library/history}" method="get">
+				        <button>
+				            <i class="ti-user"></i>
+				            Borrow History
+				        </button>
+    				</form>
                 </li>
                 <li class="link">
                     <form th:action="@{/logout}" method="post">

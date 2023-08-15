@@ -34,12 +34,15 @@ public class Log {
 	@Column(name = "RENT_DATE")
 	private LocalDate rentDate;
 	
-	@ManyToOne
-	@JoinColumn(name = "RETURN_DATE", insertable = false, updatable = false)
+	@Column(name = "RETURN_DATE")
 	private LocalDate return_date;
 	
 	@Column(name = "RETURN_DUE_DATE")
 	private LocalDateTime return_due_date;
+	
+	@ManyToOne
+	@JoinColumn(name = "LIBRARY_ID", insertable = false, updatable = false)
+	private Library library;
 	
 	public Integer getId() {
 		return this.id;
@@ -87,6 +90,10 @@ public class Log {
 	
 	public void setReturn_due_date(LocalDateTime return_due_date) {
 		this.return_due_date = return_due_date;
+	}
+	
+	public Library getLibrary() {
+		return this.library;
 	}
 	
 	
